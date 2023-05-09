@@ -15,6 +15,22 @@ $rs = $ps->fetchAll();
 return $rs;
 
 }
+
+public function getProduk($id){
+    $sql ="SELECT * FROM pesanan ";
+    $ps = $this->koneksi->prepare($sql);
+    $ps->execute([$id]);
+    $rs = $ps->fetchAll();
+    return $rs;    
+}
+
+public function simpan($data){
+    $sql = "INSERT INTO produk(kd_produk, qty, harga, id_pelanggan)
+    VALUES (?,?,?,?";
+    $ps = $this->koneksi->prepare($sql);
+    $ps->execute($data);
+    
+}
 }
 
 ?>

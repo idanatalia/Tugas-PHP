@@ -15,6 +15,22 @@ $rs = $ps->fetchAll();
 return $rs;
 
 }
+
+public function getKartu($id){
+    $sql ="SELECT * FROM kartu ";
+    $ps = $this->koneksi->prepare($sql);
+    $ps->execute([$id]);
+    $rs = $ps->fetchAll();
+    return $rs;    
+}
+
+public function simpan($data){
+    $sql = "INSERT INTO kartu(kode, nama, diskon, iuran)
+    VALUES (?,?,?,?";
+    $ps = $this->koneksi->prepare($sql);
+    $ps->execute($data);
+    
+}
 }
 
 ?>

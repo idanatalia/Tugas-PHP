@@ -16,15 +16,12 @@ $kartu = $model->Kartu();
                             <li class="breadcrumb-item active">Tables</li>
                         </ol>
                         <div class="card mb-4">
-                            <div class="card-body">
-                                DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the
-                                <a target="_blank" href="https://datatables.net/">official DataTables documentation</a>
-                            </div>
-                        </div>
-                        <div class="card mb-4">
                             <div class="card-header">
-                                <i class="fas fa-table me-1"></i>
-                                DataTable Example
+                                <!-- <i class="fas fa-table me-1"></i>
+                                DataTable Example -->
+                                <!-- membuat tombol mengarahkan ke file produk_form.php -->
+                                <a href="index.php?url=kartu_form.php"class="btn btn-primary btn-sm">Tambah</a>
+                                
                             </div>
                             <div class="card-body">
                                 <table id="datatablesSimple">
@@ -35,6 +32,7 @@ $kartu = $model->Kartu();
                                             <th>Nama </th>
                                             <th>Diskon</th>
                                             <th>Iuran</th>
+                                            <th>Action</th>
                                                                                    
                                         </tr>
                                     </thead>
@@ -45,6 +43,7 @@ $kartu = $model->Kartu();
                                             <th>Nama </th>
                                             <th>Diskon</th>
                                             <th>Iuran</th>
+                                            <th>Action</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
@@ -59,7 +58,15 @@ $kartu = $model->Kartu();
                                             <td><?= $row['nama']?></td>
                                             <td><?= $row['diskon']?></td>
                                             <td><?= $row['iuran']?></td>
-                                            
+                                            <td>
+                                                <form action="kartu_controller.php" method="POST">
+                                                    <a class="btn btn-info btn-sm" href="index.php?url=kartu_detail&id=<?= $row['id']?>">Detail</a>
+                                                    <a class="btn btn-warning btn-sm">Ubah</a>
+                                                    <a class="btn btn-danger btn-sm">Hapus</a>
+
+                                                 <input type="hidden" name="idx" value="<?= $row['id']?>">
+                                        </form>
+                                            </td>
                                             
                                         </tr>
                                        <?php

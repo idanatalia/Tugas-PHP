@@ -20,9 +20,11 @@
                                     <a class="nav-link" href="index.php?url=contact.php">Contact</a>
                                     <a class="nav-link" href="index.php?url=product.php">Data Produk</a>
                                     <a class="nav-link" href="index.php?url=jenisproduk.php">Jenis Produk</a>
-                                    <a class="nav-link" href="pelanggan.php">Data Pelanggan</a>
-                                    <a class="nav-link" href="pesanan.php">Data Pesanan</a>
-                                    <a class="nav-link" href="kartu.php">Kartu</a>
+                                    <a class="nav-link" href="index.php?url=pelanggan.php">Data Pelanggan</a>
+                                    <a class="nav-link" href="index.php?url=pesanan.php">Data Pesanan</a>
+                                    <a class="nav-link" href="index.php?url=kartu.php">Kartu</a>
+                                    <!-- <a class="nav-link" href="index.php?url=produk_form.php">Input Data Produk</a> -->
+
 
                                 </nav>
                             </div>

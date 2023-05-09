@@ -16,15 +16,12 @@ $pelanggan = $model->Pelanggan();
                             <li class="breadcrumb-item active">Tables</li>
                         </ol>
                         <div class="card mb-4">
-                            <div class="card-body">
-                                DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the
-                                <a target="_blank" href="https://datatables.net/">official DataTables documentation</a>
-                            </div>
-                        </div>
-                        <div class="card mb-4">
                             <div class="card-header">
-                                <i class="fas fa-table me-1"></i>
-                                DataTable Example
+                                <!-- <i class="fas fa-table me-1"></i>
+                                DataTable Example -->
+                                <!-- membuat tombol mengarahkan ke file produk_form.php -->
+                                <a href="index.php?url=pelanggan_form.php"class="btn btn-primary btn-sm">Tambah</a>
+                                
                             </div>
                             <div class="card-body">
                                 <table id="datatablesSimple">
@@ -40,6 +37,7 @@ $pelanggan = $model->Pelanggan();
                                             <th>Kartu</th>
                                             <th>Alamat</th>
                                             <th>Umur</th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -54,6 +52,7 @@ $pelanggan = $model->Pelanggan();
                                             <th>Kartu</th>
                                             <th>Alamat</th>
                                             <th>Umur</th>
+                                            <th>Action</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
@@ -72,7 +71,15 @@ $pelanggan = $model->Pelanggan();
                                             <td><?= $row['email']?></td>
                                             <td><?= $row['kartu_id']?></td>
                                             <td><?= $row['umur']?></td>
-                                            
+                                            <td>
+                                                <form action="pelanggan_controller.php" method="POST">
+                                                    <a class="btn btn-info btn-sm" href="index.php?url=pelanggan_detail&id=<?= $row['id']?>">Detail</a>
+                                                    <a class="btn btn-warning btn-sm">Ubah</a>
+                                                    <a class="btn btn-danger btn-sm">Hapus</a>
+
+                                                 <input type="hidden" name="idx" value="<?= $row['id']?>">
+                                        </form>
+                                            </td>
                                         </tr>
                                        <?php
                                        $no++;
