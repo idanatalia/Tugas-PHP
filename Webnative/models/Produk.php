@@ -8,7 +8,8 @@ class Produk {
     }
 
 public function dataProduk(){
-    $sql = "SELECT produk.*, jenis_produk.nama as kategori FROM produk INNER JOIN jenis_produk ON jenis_produk.id = produk.jenis_produk_id ";
+    $sql = "SELECT produk.*, jenis_produk.nama as kategori FROM produk INNER JOIN 
+    jenis_produk ON jenis_produk.id = produk.jenis_produk_id" ;
 $ps = $this->koneksi->prepare($sql);
 $ps->execute();
 $rs = $ps->fetchAll();
@@ -20,16 +21,27 @@ public function getProduk($id){
     jenis_produk ON jenis_produk.id = produk.jenis_produk_id WHERE produk.id = ?";
     $ps = $this->koneksi->prepare($sql);
     $ps->execute([$id]);
-    $rs = $ps->fetchAll();
+    $rs = $ps->fetch();
     return $rs;    
 }
 
 public function simpan($data){
-    $sql = "INSERT INTO produk(kode, nama, harga_jual, harga_beli, stok, min_stok, jenis_produk_id)
+    $sql = "INSERT INTO produk(kode, nama, harga_jual,harga_beli, stok, min_stok, jenis_produk_id)
     VALUES (?,?,?,?,?,?,?)";
     $ps = $this->koneksi->prepare($sql);
     $ps->execute($data);
-    
+}
+public function ubah($data){
+    $sql = "UPDATE produk SET kode=?,nama=?, harga_jual=?, harga_beli=?, stok=?, min_stok=?, jenis_produk_id=?
+    WHERE id=?";
+    $ps = $this->koneksi->prepare($sql);
+    $ps-execute($data);
+}
+    public function hapus($id){
+        $sql = "DELETE FROM produk WHERE id = ?";
+        $ps = $this->koneksi->prepare($sql);
+        $ps->execute([$id]);
+        
 }
 }
 

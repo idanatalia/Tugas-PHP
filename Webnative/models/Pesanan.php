@@ -16,7 +16,7 @@ return $rs;
 
 }
 
-public function getProduk($id){
+public function getPesanan($id){
     $sql ="SELECT * FROM pesanan ";
     $ps = $this->koneksi->prepare($sql);
     $ps->execute([$id]);
@@ -25,7 +25,7 @@ public function getProduk($id){
 }
 
 public function simpan($data){
-    $sql = "INSERT INTO produk(kd_produk, qty, harga, id_pelanggan)
+    $sql = "INSERT INTO pesanan(kd_produk, qty, harga, id_pelanggan)
     VALUES (?,?,?,?";
     $ps = $this->koneksi->prepare($sql);
     $ps->execute($data);

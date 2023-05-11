@@ -20,6 +20,8 @@ $model = new Kartu();
 $tombol = $_REQUEST['proses'];
 switch($tombol){
     case 'simpan':$model->simpan($data); break;
+    case 'ubah':
+        $data[] = $_POST['idx']; $model->ubah($data);break;
     default:
     header ('Location:index.php?url=kartu');
     break;
